@@ -42,3 +42,6 @@ vim.cmd([[cnoremap <Esc> <C-c>:nohls<CR>]])
 -- 设置 timeoutlen 和 ttimeoutlen
 vim.o.timeoutlen = 1000
 vim.o.ttimeoutlen = 1
+
+vim.o.clipboard = "unnamedplus"
+
