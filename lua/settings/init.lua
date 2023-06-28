@@ -36,8 +36,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Disable search highlighting when pressing Esc
-vim.cmd([[noremap <Esc> :nohls<CR>]])
-vim.cmd([[cnoremap <Esc> <C-c>:nohls<CR>]])
+-- vim.cmd([[noremap <Esc> :nohls<CR>]])
+-- vim.cmd([[cnoremap <Esc> <C-c>:nohls<CR>]])
 
 -- 设置 timeoutlen 和 ttimeoutlen
 vim.o.timeoutlen = 1000
