@@ -30,54 +30,23 @@ require("lazy").setup({{
     build = ":TSUpdate"
 }, -- lsp-zero
 {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v2.x",
-    lazy = true,
-    config = function()
-        -- This is where you modify the settings for lsp-zero
-        -- Note: autocompletion settings will not take effect
-
-        require("lsp-zero.settings").preset({})
-    end
-}, -- Autocompletion
-{
-    "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
-    dependencies = {{"L3MON4D3/LuaSnip"}},
-    config = function()
-        -- Here is where you configure the autocompletion settings.
-        -- The arguments for .extend() have the same shape as `manage_nvim_cmp`:
-        -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
-
-        require("lsp-zero.cmp").extend()
-
-        -- And you can configure cmp even more, if you want to.
-        local cmp = require("cmp")
-        local cmp_action = require("lsp-zero.cmp").action()
-
-        cmp.setup({
-            mapping = {
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<C-f>"] = cmp_action.luasnip_jump_forward(),
-                ["<C-b>"] = cmp_action.luasnip_jump_backward()
-            }
-        })
-    end
-}, -- LSP
-{
-    "neovim/nvim-lspconfig",
-    cmd = "LspInfo",
-    event = {"BufReadPre", "BufNewFile"},
-    dependencies = {{"hrsh7th/cmp-nvim-lsp"}, {"williamboman/mason-lspconfig.nvim"}, {
-        "williamboman/mason.nvim",
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
+    dependencies = { -- LSP Support
+    {'neovim/nvim-lspconfig'}, -- Required
+    { -- Optional
+        'williamboman/mason.nvim',
         build = function()
-            pcall(vim.cmd, "MasonUpdate")
+            pcall(vim.cmd, 'MasonUpdate')
         end
-    }},
+    }, {'williamboman/mason-lspconfig.nvim'}, -- Optional
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'}, -- Required
+    {'hrsh7th/cmp-nvim-lsp'}, -- Required
+    {'L3MON4D3/LuaSnip'}, -- Required
+    {'jose-elias-alvarez/null-ls.nvim'}, {'nvim-lua/plenary.nvim'}},
     config = function()
-        -- This is where all the LSP shenanigans will live
-
-        local lsp = require("lsp-zero")
+        local lsp = require('lsp-zero').preset({})
 
         lsp.on_attach(function(client, bufnr)
             lsp.default_keymaps({
@@ -86,9 +55,20 @@ require("lazy").setup({{
         end)
 
         -- (Optional) Configure lua language server for neovim
-        require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
+        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
         lsp.setup()
+
+        -- setup null-ls
+
+        local null_ls = require('null-ls')
+
+        null_ls.setup({
+            sources = { -- Replace these with the tools you want to install
+            -- make sure the source name is supported by null-ls
+            -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+            null_ls.builtins.formatting.prettier}
+        })
     end
 }, {
     "m4xshen/hardtime.nvim",
