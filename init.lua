@@ -91,7 +91,7 @@ require("lazy").setup({ {
         require("fzf-lua").setup({})
     end
 }, {
-
+    -- https://github.com/numToStr/Comment.nvim
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
