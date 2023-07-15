@@ -8,23 +8,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("settings")
 
-require("lazy").setup({{
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-        -- load the colorscheme here
-        if vim.g.vscode then
-            -- VSCode extension
-        else
-            -- ordinary Neovim
-            require("tokyonight").setup({
-                style = "storm"
-            })
-            vim.cmd([[colorscheme tokyonight]])
-        end
-    end
-}, -- treesitter
+require("lazy").setup({ -- github theme
+{'projekt0n/github-nvim-theme'}, -- treesitter
 {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
