@@ -9,7 +9,18 @@ vim.opt.rtp:prepend(lazypath)
 require("settings")
 
 require("lazy").setup({ -- github theme
-{'projekt0n/github-nvim-theme'}, -- treesitter
+{
+  'projekt0n/github-nvim-theme',
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+    require('github-theme').setup({
+      -- ...
+    })
+
+    vim.cmd('colorscheme github_dark')
+  end,
+},
 {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
