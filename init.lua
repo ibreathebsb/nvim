@@ -6,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("settings")
+require("custom")
 
 require("lazy").setup({ -- github theme
 {
@@ -20,7 +20,12 @@ require("lazy").setup({ -- github theme
 
         vim.cmd('colorscheme github_dark')
     end
-}, {"nvim-zh/better-escape.vim"}, {
+}, {
+    "max397574/better-escape.nvim",
+    config = function()
+        require("better_escape").setup()
+    end
+}, {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate"
 }, -- lsp-zero
