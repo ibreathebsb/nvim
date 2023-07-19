@@ -1,8 +1,5 @@
 
 
-vim.keymap.set("i", "jk", "<Esc>")
-
-
 -- 设置文本编码为 UTF-8
 vim.o.encoding = "utf-8"
 
