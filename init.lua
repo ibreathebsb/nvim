@@ -21,15 +21,15 @@ require("lazy").setup({ -- github theme
         vim.cmd('colorscheme github_dark')
     end
 }, 
-{
-    'kevinhwang91/nvim-ufo',
-    dependencies = {
-        "kevinhwang91/promise-async"
-    },
-    config = function()
-        require('ufo').setup()
-    end
-},
+-- {
+--     'kevinhwang91/nvim-ufo',
+--     dependencies = {
+--         "kevinhwang91/promise-async"
+--     },
+--     config = function()
+--         require('ufo').setup()
+--     end
+-- },
 {
     "max397574/better-escape.nvim",
     config = function()
