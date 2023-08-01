@@ -1,4 +1,4 @@
-
+vim.g.mapleader = " "
 
 -- 设置文本编码为 UTF-8
 vim.o.encoding = "utf-8"
@@ -45,3 +45,6 @@ vim.o.timeoutlen = 1000
 vim.o.ttimeoutlen = 1
 
 vim.o.clipboard = "unnamedplus"
+
+
+vim.keymap.set("n", "<leader>p", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
