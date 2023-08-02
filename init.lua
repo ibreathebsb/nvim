@@ -12,7 +12,6 @@ local function isNativeNvim()
     return not vim.g.vscode
 end
 
-
 require("lazy").setup({ -- github theme
 {
     'projekt0n/github-nvim-theme',
@@ -66,7 +65,7 @@ require("lazy").setup({ -- github theme
         dependencies = {"rafamadriz/friendly-snippets"}
     }, -- Required
     {'hrsh7th/cmp-buffer'}, {'hrsh7th/cmp-path'}, {'saadparwaiz1/cmp_luasnip'}, {'jose-elias-alvarez/null-ls.nvim'},
-    {'nvim-lua/plenary.nvim'}},
+    {'nvim-lua/plenary.nvim'}, {'onsails/lspkind.nvim'}},
 
     config = function()
         local lsp = require('lsp-zero').preset({})
@@ -101,7 +100,15 @@ require("lazy").setup({ -- github theme
             preselect = 'item',
             completion = {
                 completeopt = 'menu,menuone,noinsert'
-            },    
+            },
+            formatting = {
+                fields = {'abbr', 'kind', 'menu'},
+                format = require('lspkind').cmp_format({
+                    mode = 'symbol', -- show only symbol annotations
+                    maxwidth = 50, -- prevent the popup from showing more than provided characters
+                    ellipsis_char = '...' -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+                })
+            },
             sources = {{
                 name = 'nvim_lsp'
             }, {
