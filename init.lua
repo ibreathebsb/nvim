@@ -19,8 +19,7 @@ require("lazy").setup({ -- github theme
             vim.cmd('colorscheme github_dark')
         end
     end
-}, 
--- {
+}, -- {
 --     'kevinhwang91/nvim-ufo',
 --     dependencies = {
 --         "kevinhwang91/promise-async"
@@ -53,8 +52,13 @@ require("lazy").setup({ -- github theme
     -- Autocompletion
     {'hrsh7th/nvim-cmp'}, -- Required
     {'hrsh7th/cmp-nvim-lsp'}, -- Required
-    {'L3MON4D3/LuaSnip'}, -- Required
-    {'jose-elias-alvarez/null-ls.nvim'}, {'nvim-lua/plenary.nvim'}},
+    {
+        'L3MON4D3/LuaSnip',
+        dependencies = {"rafamadriz/friendly-snippets"}
+    }, -- Required
+    {'hrsh7th/cmp-buffer'}, {'hrsh7th/cmp-path'}, {'saadparwaiz1/cmp_luasnip'}, {'jose-elias-alvarez/null-ls.nvim'},
+    {'nvim-lua/plenary.nvim'}},
+
     config = function()
         local lsp = require('lsp-zero').preset({})
 
@@ -71,13 +75,36 @@ require("lazy").setup({ -- github theme
 
         -- setup null-ls
 
-        local null_ls = require('null-ls')
+        -- local null_ls = require('null-ls')
 
-        null_ls.setup({
-            sources = { -- Replace these with the tools you want to install
-            -- make sure the source name is supported by null-ls
-            -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-            null_ls.builtins.formatting.prettier}
+        -- null_ls.setup({
+        --     sources = { -- Replace these with the tools you want to install
+        --     -- make sure the source name is supported by null-ls
+        --     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+        --     null_ls.builtins.formatting.prettier}
+        -- })
+
+        local cmp = require('cmp')
+        local cmp_action = require('lsp-zero').cmp_action()
+
+        require('luasnip.loaders.from_vscode').lazy_load()
+        cmp.setup({
+            sources = {{
+                name = 'nvim_lsp'
+            }, {
+                name = 'buffer'
+            }, {
+                name = 'path'
+            }, {
+                name = 'luasnip'
+            }},
+            mapping = {
+                ['<Tab>'] = cmp_action.tab_complete(),
+                ['<CR>'] = cmp.mapping.confirm({
+                    select = false
+                })
+                -- ['<S-Tab>'] = cmp_action.select_prev_or_fallback()
+            }
         })
     end
 }, {
