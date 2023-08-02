@@ -9,7 +9,7 @@
   "flash.nvim": { "branch": "main", "commit": "967117690bd677cb7b6a87f0bc0077d2c0be3a27" },
   "friendly-snippets": { "branch": "main", "commit": "bc38057e513458cb2486b6cd82d365fa294ee398" },
   "fzf-lua": { "branch": "main", "commit": "2fa4913c7db0c22e02c003c6f09b7ebb2d0ed367" },
-  "github-nvim-theme": { "branch": "main", "commit": "796ecdd3ad215df5cb2968400d3d947e3d4efe9a" },
+  "github-nvim-theme": { "branch": "main", "commit": "832d7836a84fa60842a30f6eccd5432c7585d506" },
   "hardtime.nvim": { "branch": "main", "commit": "902a2e75d73bc1f6e5cf75da8c53137c566a6101" },
   "lazy.nvim": { "branch": "main", "commit": "dac844ed617dda4f9ec85eb88e9629ad2add5e05" },
   "lsp-zero.nvim": { "branch": "v2.x", "commit": "73bc33fe9ad5a1d4501536fdd4755b3aa18c3392" },

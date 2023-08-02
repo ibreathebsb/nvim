@@ -8,11 +8,17 @@ vim.opt.rtp:prepend(lazypath)
 
 require("custom")
 
+local function isNativeNvim()
+    return not vim.g.vscode
+end
+
+
 require("lazy").setup({ -- github theme
 {
     'projekt0n/github-nvim-theme',
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
+    enabled = isNativeNvim(),
     config = function()
         if not vim.g.vscode then
             require('github-theme').setup({})
@@ -30,17 +36,20 @@ require("lazy").setup({ -- github theme
 -- },
 {
     "max397574/better-escape.nvim",
+    enabled = isNativeNvim(),
     config = function()
         require("better_escape").setup()
     end
 }, {
     "nvim-treesitter/nvim-treesitter",
+    enabled = isNativeNvim(),
     build = ":TSUpdate"
 }, -- lsp-zero
 -- https://github.com/VonHeikemen/lsp-zero.nvim#keybindings
 {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
+    enabled = isNativeNvim(),
     dependencies = { -- LSP Support
     {'neovim/nvim-lspconfig'}, -- Required
     { -- Optional
@@ -89,6 +98,10 @@ require("lazy").setup({ -- github theme
 
         require('luasnip.loaders.from_vscode').lazy_load()
         cmp.setup({
+            preselect = 'item',
+            completion = {
+                completeopt = 'menu,menuone,noinsert'
+            },    
             sources = {{
                 name = 'nvim_lsp'
             }, {
@@ -120,6 +133,7 @@ require("lazy").setup({ -- github theme
     end
 }, {
     "ibhagwan/fzf-lua",
+    enabled = isNativeNvim(),
     -- optional for icon support
     dependencies = {"nvim-tree/nvim-web-devicons"},
     config = function()
