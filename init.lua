@@ -91,41 +91,42 @@ require("lazy").setup({ -- github theme
         --     -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
         --     null_ls.builtins.formatting.prettier}
         -- })
+        if isNativeNvim() then
+            local cmp = require('cmp')
+            local cmp_action = require('lsp-zero').cmp_action()
 
-        local cmp = require('cmp')
-        local cmp_action = require('lsp-zero').cmp_action()
-
-        require('luasnip.loaders.from_vscode').lazy_load()
-        cmp.setup({
-            preselect = 'item',
-            completion = {
-                completeopt = 'menu,menuone,noinsert'
-            },
-            formatting = {
-                fields = {'abbr', 'kind', 'menu'},
-                format = require('lspkind').cmp_format({
-                    mode = 'symbol', -- show only symbol annotations
-                    maxwidth = 50, -- prevent the popup from showing more than provided characters
-                    ellipsis_char = '...' -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
-                })
-            },
-            sources = {{
-                name = 'nvim_lsp'
-            }, {
-                name = 'buffer'
-            }, {
-                name = 'path'
-            }, {
-                name = 'luasnip'
-            }},
-            mapping = {
-                ['<Tab>'] = cmp_action.tab_complete(),
-                ['<CR>'] = cmp.mapping.confirm({
-                    select = false
-                })
-                -- ['<S-Tab>'] = cmp_action.select_prev_or_fallback()
-            }
-        })
+            require('luasnip.loaders.from_vscode').lazy_load()
+            cmp.setup({
+                preselect = 'item',
+                completion = {
+                    completeopt = 'menu,menuone,noinsert'
+                },
+                formatting = {
+                    fields = {'abbr', 'kind', 'menu'},
+                    format = require('lspkind').cmp_format({
+                        mode = 'symbol', -- show only symbol annotations
+                        maxwidth = 50, -- prevent the popup from showing more than provided characters
+                        ellipsis_char = '...' -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead
+                    })
+                },
+                sources = {{
+                    name = 'nvim_lsp'
+                }, {
+                    name = 'buffer'
+                }, {
+                    name = 'path'
+                }, {
+                    name = 'luasnip'
+                }},
+                mapping = {
+                    ['<Tab>'] = cmp_action.tab_complete(),
+                    ['<CR>'] = cmp.mapping.confirm({
+                        select = false
+                    })
+                    -- ['<S-Tab>'] = cmp_action.select_prev_or_fallback()
+                }
+            })
+        end
     end
 }, {
     "m4xshen/hardtime.nvim",
@@ -145,7 +146,11 @@ require("lazy").setup({ -- github theme
     dependencies = {"nvim-tree/nvim-web-devicons"},
     config = function()
         -- calling `setup` is optional for customization
-        require("fzf-lua").setup({})
+        require("fzf-lua").setup({
+            files = {
+                file_ignore_patterns = {"%node_modules%"}
+            }
+        })
     end
 }, {
     -- https://github.com/numToStr/Comment.nvim

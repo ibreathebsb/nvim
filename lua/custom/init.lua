@@ -17,11 +17,11 @@ vim.wo.wrap = false
 vim.o.smartindent = true
 
 -- 设置制表符宽度和软制表符宽度
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
 
 -- 设置每次操作的缩进宽度
-vim.o.shiftwidth = 4
+vim.o.shiftwidth = 2
 
 -- 将制表符转换为空格
 vim.o.expandtab = true
