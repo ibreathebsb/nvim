@@ -147,8 +147,14 @@ require("lazy").setup({ -- github theme
     config = function()
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
+            winopts = {
+                width = 0.5,
+                preview = {
+                    hidden = "hidden"
+                }
+            },
             files = {
-                file_ignore_patterns = {"%node_modules%"}
+                file_ignore_patterns = {"node_modules"}
             }
         })
     end
