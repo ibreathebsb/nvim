@@ -10,16 +10,16 @@ require("custom")
 
 local isNativeNvim = not vim.g.vscode
 
-require("lazy").setup({ -- github theme
-{
-    'projekt0n/github-nvim-theme',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
+require("lazy").setup({{
+    "folke/tokyonight.nvim",
+    lazy = false,
     enabled = isNativeNvim,
+    priority = 1000,
+    opts = {},
     config = function()
         if not vim.g.vscode then
-            require('github-theme').setup({})
-            vim.cmd('colorscheme github_dark')
+            require('tokyonight').setup({})
+            vim.cmd('colorscheme tokyonight-night')
         end
     end
 }, -- {
