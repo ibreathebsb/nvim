@@ -15,16 +15,6 @@ require("custom")
 
 require("lazy").setup({
 	{ "nvim-tree/nvim-web-devicons" },
-	-- {
-	-- 	"folke/tokyonight.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	opts = {},
-	-- 	config = function()
-	-- 		require("tokyonight").setup({})
-	-- 		vim.cmd("colorscheme tokyonight-night")
-	-- 	end,
-	-- },
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
@@ -168,6 +158,7 @@ require("lazy").setup({
 				sources = { -- Replace these with the tools you want to install
 					-- make sure the source name is supported by null-ls
 					-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+          -- https://github.com/JohnnyMorganz/StyLua
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettier,
 				},
