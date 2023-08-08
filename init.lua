@@ -15,16 +15,26 @@ require("custom")
 
 require("lazy").setup({
 	{ "nvim-tree/nvim-web-devicons" },
+	-- {
+	-- 	"folke/tokyonight.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {},
+	-- 	config = function()
+	-- 		require("tokyonight").setup({})
+	-- 		vim.cmd("colorscheme tokyonight-night")
+	-- 	end,
+	-- },
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
+		"projekt0n/github-nvim-theme",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			require("tokyonight").setup({})
-			vim.cmd("colorscheme tokyonight-night")
+			require("github-theme").setup({})
+			vim.cmd("colorscheme github_dark")
 		end,
-	}, -- {
+	},
+	-- {
 	--     'kevinhwang91/nvim-ufo',
 	--     dependencies = {
 	--         "kevinhwang91/promise-async"
