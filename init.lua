@@ -21,7 +21,6 @@ require("lazy").setup({
 	  enabled = vim.g.vscode == nil,
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			print(1111)
 			require("github-theme").setup({})
 			vim.cmd("colorscheme github_dark")
 		end,
