@@ -18,11 +18,13 @@ require("lazy").setup({
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-	  enabled = vim.g.vscode == nil,
+		enabled = vim.g.vscode == nil,
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			require("github-theme").setup({})
-			vim.cmd("colorscheme github_dark")
+			if vim.g.vscode == nil then
+				require("github-theme").setup({})
+				vim.cmd("colorscheme github_dark")
+			end
 		end,
 	},
 	-- {
@@ -159,7 +161,7 @@ require("lazy").setup({
 				sources = { -- Replace these with the tools you want to install
 					-- make sure the source name is supported by null-ls
 					-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
-          -- https://github.com/JohnnyMorganz/StyLua
+					-- https://github.com/JohnnyMorganz/StyLua
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.prettier,
 				},

@@ -47,11 +47,26 @@ vim.o.ttimeoutlen = 1
 vim.o.clipboard = "unnamedplus"
 
 vim.cmd("syntax on")
--- 
-vim.keymap.set("n", "<leader>p", "<cmd>lua require('telescope.builtin').find_files({ previewer = false })<CR>", { silent = true })
+--
+-- open files
+vim.keymap.set(
+	"n",
+	"<leader>p",
+	"<cmd>lua require('telescope.builtin').find_files({ previewer = false })<CR>",
+	{ silent = true }
+)
+-- open buffers
+vim.keymap.set(
+	"n",
+	"<leader>b",
+	"<cmd>lua require('telescope.builtin').buffers({ previewer = false })<CR>",
+	{ silent = true }
+)
+-- format
 vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
+-- rename
 vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
- 
+
 -- turn page
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, remap = false })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, remap = false })
