@@ -62,6 +62,13 @@ vim.keymap.set(
 	"<cmd>lua require('telescope.builtin').buffers({ previewer = false })<CR>",
 	{ silent = true }
 )
+
+vim.keymap.set(
+	"n",
+	"<leader>g",
+	"<cmd>lua require('telescope.builtin').live_grep({ previewer = false })<CR>",
+	{ silent = true }
+)
 -- format
 vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
 -- rename
@@ -70,5 +77,3 @@ vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent =
 -- turn page
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, remap = false })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, remap = false })
--- vim.keymap.set("n", "<C-f>", "<C-f>zz", { silent = true, remap = false })
--- vim.keymap.set("n", "<C-b>", "<C-b>zz", { silent = true, remap = false })
