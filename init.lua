@@ -30,18 +30,28 @@ require("lazy").setup({
 	{
 		"stevearc/oil.nvim",
 		opts = {},
-		-- Optional dependencies
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
-	-- {
-	--     'kevinhwang91/nvim-ufo',
-	--     dependencies = {
-	--         "kevinhwang91/promise-async"
-	--     },
-	--     config = function()
-	--         require('ufo').setup()
-	--     end
-	-- },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = {
+			"kevinhwang91/promise-async",
+		},
+		config = function()
+			require("ufo").setup({
+				provider_selector = function(bufnr, filetype, buftype)
+					return { "treesitter", "indent" }
+				end,
+			})
+		end,
+	},
 	{
 		"max397574/better-escape.nvim",
 		config = function()

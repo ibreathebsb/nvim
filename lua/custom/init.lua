@@ -46,6 +46,9 @@ vim.o.ttimeoutlen = 1
 
 vim.o.clipboard = "unnamedplus"
 
+-- 设置初始折叠级别
+vim.o.foldlevelstart = 10
+
 vim.cmd("syntax on")
 --
 -- open files
