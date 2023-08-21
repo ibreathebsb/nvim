@@ -67,7 +67,7 @@ require("lazy").setup({
 				highlight = {
 					enable = vim.g.vscode == nil,
 				},
-				ensure_installed = { "javascript", "typescript", "tsx", "css", "json", "lua" },
+				ensure_installed = { "javascript", "typescript", "tsx", "css", "json", "lua", "html" },
 				textobjects = {
 					select = {
 						enable = true,
