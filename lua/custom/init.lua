@@ -76,6 +76,11 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
 -- rename
 vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
+-- show diagnostics
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
+
+-- code action
+vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { noremap = true, silent = true })
 
 -- turn page
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, remap = false })
