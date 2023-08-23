@@ -18,7 +18,7 @@ require("lazy").setup({
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
-		enabled = vim.g.vscode == nil,
+    cond = not vim.g.vscode,
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			if vim.g.vscode == nil then
@@ -30,11 +30,13 @@ require("lazy").setup({
 	{
 		"stevearc/oil.nvim",
 		opts = {},
+    cond = not vim.g.vscode,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+    cond = not vim.g.vscode,
 		config = function()
 			require("lualine").setup()
 		end,
@@ -44,6 +46,7 @@ require("lazy").setup({
 		dependencies = {
 			"kevinhwang91/promise-async",
 		},
+    cond = not vim.g.vscode,
 		config = function()
 			require("ufo").setup({
 				provider_selector = function(bufnr, filetype, buftype)

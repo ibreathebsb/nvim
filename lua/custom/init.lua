@@ -85,3 +85,6 @@ vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { noremap = true, sile
 -- turn page
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, remap = false })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, remap = false })
+-- nohl
+vim.keymap.set("i", "<Esc>", "<Esc>:noh<CR><Esc>", { silent = true, remap = false })
+vim.keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true, remap = false })
