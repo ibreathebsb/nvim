@@ -88,3 +88,6 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, remap = false })
 -- nohl
 vim.keymap.set("i", "<Esc>", "<Esc>:noh<CR><Esc>", { silent = true, remap = false })
 vim.keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true, remap = false })
+
+--whichkey
+vim.keymap.set("n", "<leader>?", ":WhichKey<CR>", { silent = true, remap = false })
