@@ -50,32 +50,12 @@ vim.o.clipboard = "unnamedplus"
 vim.o.foldlevelstart = 10
 
 vim.cmd("syntax on")
---
--- open files
-vim.keymap.set(
-	"n",
-	"<leader>p",
-	"<cmd>lua require('telescope.builtin').find_files({ previewer = false })<CR>",
-	{ silent = true }
-)
--- open buffers
-vim.keymap.set(
-	"n",
-	"<leader>b",
-	"<cmd>lua require('telescope.builtin').buffers({ previewer = false })<CR>",
-	{ silent = true }
-)
 
-vim.keymap.set(
-	"n",
-	"<leader>g",
-	"<cmd>lua require('telescope.builtin').live_grep({ previewer = false })<CR>",
-	{ silent = true }
-)
+
 -- format
-vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
 -- rename
-vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
 -- show diagnostics
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
 

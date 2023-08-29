@@ -10,6 +10,33 @@ local M = {
 				},
 			},
 		})
+
+		local builtin = require("telescope.builtin")
+
+		-- open files
+		vim.keymap.set("n", "<leader>ff", function()
+			builtin.find_files({ previewer = false })
+		end, { silent = true, desc = "[F]ind [F]iles" })
+
+		-- open buffers
+		vim.keymap.set("n", "<leader>fb", function()
+			builtin.buffers({ previewer = false })
+		end, { silent = true, desc = "[F]ind [B]uffers" })
+
+		-- live_grep
+		vim.keymap.set("n", "<leader>fg", function()
+			builtin.live_grep({ previewer = false })
+		end, { silent = true, desc = "[F]ind [G]rep" })
+
+		-- recent files
+		vim.keymap.set("n", "<leader>fr", function()
+			builtin.oldfiles({ previewer = false })
+		end, { silent = true, desc = "[F]ind [R]ecent Files" })
+
+		-- keymaps
+		vim.keymap.set("n", "<leader>fk", function()
+			builtin.keymaps({ previewer = false })
+		end, { silent = true, desc = "[F]ind [K]eymaps" })
 	end,
 }
 
