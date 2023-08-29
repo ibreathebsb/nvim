@@ -3,7 +3,11 @@ local M = {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	cond = not vim.g.vscode,
 	config = function()
-		require("lualine").setup()
+		require("lualine").setup({
+			options = {
+				theme = "ayu_dark",
+			},
+		})
 	end,
 }
 
