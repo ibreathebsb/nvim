@@ -9,6 +9,36 @@ local M = {
 			},
 			ensure_installed = { "javascript", "typescript", "tsx", "css", "json", "lua", "html" },
 			textobjects = {
+				swap = {
+					enable = true,
+					swap_next = {
+						["<leader>sp"] = "@parameter.inner",
+					},
+					swap_previous = {
+						["<leader>sP"] = "@parameter.inner",
+					},
+				},
+				move = {
+					enable = true,
+					set_jumps = true, -- whether to set jumps in the jumplist
+					goto_next_start = {
+						["]m"] = "@function.outer",
+						["]]"] = { query = "@class.outer", desc = "Next class start" },
+					},
+					goto_next_end = {
+						["]M"] = "@function.outer",
+						["]["] = "@class.outer",
+					},
+					goto_previous_start = {
+						["[m"] = "@function.outer",
+						["[["] = "@class.outer",
+					},
+					goto_previous_end = {
+						["[M"] = "@function.outer",
+						["[]"] = "@class.outer",
+					},
+				},
+
 				select = {
 					enable = true,
 					lookahead = true,
@@ -26,6 +56,15 @@ local M = {
 						["am"] = "@comment.outer",
 						["im"] = "@comment.inner",
 					},
+				},
+			},
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<leader>ti", -- set to `false` to disable one of the mappings
+					node_incremental = "<leader>ni",
+					scope_incremental = "grc",
+					node_decremental = "grm",
 				},
 			},
 		})

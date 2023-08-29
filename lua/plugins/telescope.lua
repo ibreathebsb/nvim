@@ -9,6 +9,11 @@ local M = {
 					horizontal = { width = 0.5 },
 				},
 			},
+			pickers = {
+				oldfiles = {
+					cwd_only = true,
+				},
+			},
 		})
 
 		local builtin = require("telescope.builtin")

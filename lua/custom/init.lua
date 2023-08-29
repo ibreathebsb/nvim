@@ -51,23 +51,22 @@ vim.o.foldlevelstart = 10
 
 vim.cmd("syntax on")
 
-
 -- format
-vim.keymap.set("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { silent = true })
+
 -- rename
-vim.keymap.set("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", { silent = true })
--- show diagnostics
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { silent = true })
 
 -- code action
 vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { noremap = true, silent = true })
 
+-- show diagnostics
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
+
 -- turn page
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, remap = false })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true, remap = false })
+
 -- nohl
 vim.keymap.set("i", "<Esc>", "<Esc>:noh<CR><Esc>", { silent = true, remap = false })
 vim.keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true, remap = false })
-
---whichkey
-vim.keymap.set("n", "<leader>?", ":WhichKey<CR>", { silent = true, remap = false })
