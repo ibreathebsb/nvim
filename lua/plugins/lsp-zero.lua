@@ -1,6 +1,7 @@
 local M = {
 	"VonHeikemen/lsp-zero.nvim",
 	branch = "v2.x",
+	cond = false,
 	dependencies = { -- LSP Support
 		{ "neovim/nvim-lspconfig" }, -- Required
 		{ -- Optional
