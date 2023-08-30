@@ -21,27 +21,27 @@ local M = {
 		-- open files
 		vim.keymap.set("n", "<leader>ff", function()
 			builtin.find_files({ previewer = false })
-		end, { silent = true, desc = "[F]ind [F]iles" })
+		end, { silent = true, desc = "[f]ind [f]iles" })
 
 		-- open buffers
 		vim.keymap.set("n", "<leader>fb", function()
 			builtin.buffers({ previewer = false })
-		end, { silent = true, desc = "[F]ind [B]uffers" })
+		end, { silent = true, desc = "[f]ind [b]uffers" })
 
 		-- live_grep
 		vim.keymap.set("n", "<leader>fg", function()
 			builtin.live_grep({ previewer = false })
-		end, { silent = true, desc = "[F]ind [G]rep" })
+		end, { silent = true, desc = "[f]ind [g]rep" })
 
 		-- recent files
 		vim.keymap.set("n", "<leader>fr", function()
 			builtin.oldfiles({ previewer = false })
-		end, { silent = true, desc = "[F]ind [R]ecent Files" })
+		end, { silent = true, desc = "[f]ind [r]ecent files" })
 
 		-- keymaps
 		vim.keymap.set("n", "<leader>fk", function()
 			builtin.keymaps({ previewer = false })
-		end, { silent = true, desc = "[F]ind [K]eymaps" })
+		end, { silent = true, desc = "[f]ind [k]eymaps" })
 	end,
 }
 
