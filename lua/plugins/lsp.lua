@@ -79,6 +79,8 @@ local M = {
         },
       },
       mapping = {
+        ["<Up>"] = cmp.mapping.select_prev_item(),
+        ["<Down>"] = cmp.mapping.select_next_item(),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -86,7 +88,6 @@ local M = {
             -- they way you will only jump inside the snippet region
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif has_words_before() then
             cmp.complete()
           else
             fallback()
