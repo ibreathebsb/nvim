@@ -1,9 +1,10 @@
 local M = {
-	-- https://github.com/numToStr/Comment.nvim
-	"numToStr/Comment.nvim",
-	config = function()
-		require("Comment").setup()
-	end,
+  -- https://github.com/numToStr/Comment.nvim
+  "numToStr/Comment.nvim",
+  cond = not vim.g.vscode,
+  config = function()
+    require("Comment").setup()
+  end,
 }
 
 return M

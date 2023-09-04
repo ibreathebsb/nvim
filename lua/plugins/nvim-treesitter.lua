@@ -5,7 +5,7 @@ local M = {
   config = function()
     require("nvim-treesitter.configs").setup({
       highlight = {
-        enable = true,
+        enable = not vim.g.vscode,
       },
       ensure_installed = { "javascript", "typescript", "tsx", "css", "json", "lua", "html" },
       textobjects = {
