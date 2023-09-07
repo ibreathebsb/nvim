@@ -52,7 +52,7 @@ vim.o.foldlevelstart = 10
 vim.cmd("syntax on")
 
 -- format
-vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format, { silent = true, desc = "[l]sp [f]omat" })
+vim.keymap.set({ "n", "v" }, "<leader>lf", vim.lsp.buf.format, { silent = true, desc = "[l]sp [f]omat" })
 
 -- rename
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { silent = true, desc = "[l]sp [r]ename" })
@@ -66,7 +66,7 @@ vim.keymap.set(
 )
 
 -- show diagnostics
--- vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { noremap = true, silent = true })
 
 -- turn page
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true, remap = false })

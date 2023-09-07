@@ -1,5 +1,6 @@
 local M = {
 	"mfussenegger/nvim-dap",
+  cond = false,
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"mxsdev/nvim-dap-vscode-js",

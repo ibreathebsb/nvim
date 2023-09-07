@@ -47,6 +47,41 @@ local M = {
       end,
       desc = "switch to buffer 5",
     },
+    {
+      "<leader>6",
+      function()
+        require("bufferline").go_to(6)
+      end,
+      desc = "switch to buffer 6",
+    },
+    {
+      "<leader>6",
+      function()
+        require("bufferline").go_to(6)
+      end,
+      desc = "switch to buffer 6",
+    },
+    {
+      "<leader>7",
+      function()
+        require("bufferline").go_to(7)
+      end,
+      desc = "switch to buffer 7",
+    },
+    {
+      "<leader>8",
+      function()
+        require("bufferline").go_to(8)
+      end,
+      desc = "switch to buffer 8",
+    },
+    {
+      "<leader>9",
+      function()
+        require("bufferline").go_to(9)
+      end,
+      desc = "switch to buffer 9",
+    },
   },
 }
 return M

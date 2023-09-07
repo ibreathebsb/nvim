@@ -12,6 +12,7 @@ local M = {
     },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
     { "saadparwaiz1/cmp_luasnip" },
     { "jose-elias-alvarez/null-ls.nvim" },
     { "nvim-lua/plenary.nvim" },
@@ -81,6 +82,7 @@ local M = {
         {
           name = "luasnip",
         },
+        { name = "nvim_lsp_signature_help" },
       },
       mapping = {
         ["<Up>"] = cmp.mapping.select_prev_item(),
@@ -90,9 +92,9 @@ local M = {
             cmp.select_next_item()
             -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
             -- they way you will only jump inside the snippet region
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-            cmp.complete()
+            -- elseif luasnip.expand_or_jumpable() then
+            --   luasnip.expand_or_jump()
+            --   cmp.complete()
           else
             fallback()
           end
