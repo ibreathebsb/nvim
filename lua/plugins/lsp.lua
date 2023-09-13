@@ -82,7 +82,7 @@ local M = {
         {
           name = "luasnip",
         },
-        { name = "nvim_lsp_signature_help" },
+        -- { name = "nvim_lsp_signature_help" },
       },
       mapping = {
         ["<Up>"] = cmp.mapping.select_prev_item(),

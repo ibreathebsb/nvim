@@ -8,6 +8,14 @@ local M = {
         indicator = {
           style = "underline",
         },
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "NeoTree",
+            highlight = "Directory",
+            separator = true, -- use a "true" to enable the default, or set your own character
+          },
+        },
       },
     })
     -- keymap
@@ -19,8 +27,8 @@ local M = {
       require("bufferline").go_to(-1, true)
     end, { desc = "swith to last tab" })
 
-    -- 1 -> 10
-    for i = 1, 10 do
+    -- 1 -> 9
+    for i = 1, 9 do
       vim.keymap.set({ "n" }, "<leader>" .. i, function()
         require("bufferline").go_to(i, true)
       end, { desc = "swith to " .. i .. " tab" })
