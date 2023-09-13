@@ -8,14 +8,6 @@ local M = {
         indicator = {
           style = "underline",
         },
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "NeoTree",
-            highlight = "Directory",
-            separator = true, -- use a "true" to enable the default, or set your own character
-          },
-        },
       },
     })
     -- keymap
