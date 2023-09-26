@@ -48,6 +48,11 @@ local M = {
     vim.keymap.set("n", "<leader>fs", function()
       builtin.lsp_document_symbols()
     end, { silent = true, desc = "[f]ind [s]ymbols" })
+
+    -- list diagnostics
+    vim.keymap.set("n", "<leader>fd", function()
+      builtin.diagnostics({ bufnr = 0 })
+    end, { silent = true, desc = "[f]ind [d]iagnostics" })
   end,
 }
 
