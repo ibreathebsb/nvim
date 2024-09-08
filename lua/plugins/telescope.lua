@@ -5,11 +5,12 @@ local M = {
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("telescope").setup({
-      defaults = {
+      defaults = require("telescope.themes").get_dropdown({
+        theme = "dropdown",
         layout_config = {
           horizontal = { width = 0.5 },
         },
-      },
+      }),
       pickers = {
         oldfiles = {
           cwd_only = true,

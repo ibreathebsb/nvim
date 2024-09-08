@@ -14,7 +14,7 @@ local M = {
     { "hrsh7th/cmp-path" },
     { "hrsh7th/cmp-nvim-lsp-signature-help" },
     { "saadparwaiz1/cmp_luasnip" },
-    { "jose-elias-alvarez/null-ls.nvim" },
+    { "nvimtools/none-ls.nvim" },
     { "nvim-lua/plenary.nvim" },
     { "onsails/lspkind.nvim" },
   },
