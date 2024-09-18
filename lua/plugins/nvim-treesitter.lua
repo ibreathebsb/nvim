@@ -7,7 +7,7 @@ local M = {
       highlight = {
         enable = not vim.g.vscode,
       },
-      ensure_installed = { "javascript", "typescript", "tsx", "css", "json", "lua", "html" },
+      ensure_installed = { "typescript", "json", "lua", "cpp"},
       textobjects = {
         swap = {
           enable = true,
